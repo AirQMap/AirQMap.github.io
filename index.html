@@ -4,23 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="theme-color" content="#220b28">
+    <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="assets/css/index.css">
     <title>AirQMap</title>
   </head>
   <body>
+    <svg width="0" height="0" style="display: none;">
+      <defs>
+        <path id="airqmap" d="M 188.97656 43.771484 C 154.65264 43.771484 15.797025 284.27657 32.958984 314.00195 C 50.120944 343.72734 327.83218 343.72734 344.99414 314.00195 C 362.1561 284.27657 223.30048 43.771485 188.97656 43.771484 z M 188.97852 105.16406 C 201.0108 105.16406 232.30898 149.51379 257.61914 194.4375 L 158.55664 194.4375 C 158.55664 194.4375 152.12761 194.06387 149.53516 195.63867 C 147.06588 197.13863 144.5625 202.73633 144.5625 202.73633 L 140.27344 211.03516 L 135.98438 219.33203 C 135.98438 219.33203 133.84578 222.65701 135.46484 225.31641 C 136.97782 227.80133 140.42383 227.62891 140.42383 227.62891 L 275.12305 227.62891 C 288.59597 255.24454 296.85996 278.46715 292.94727 285.24414 C 281.51056 305.05309 96.442566 305.05309 85.005859 285.24414 C 73.569145 265.4352 166.1051 105.16406 188.97852 105.16406 z " style="fill:currentColor; shape-rendering: geometricprecision;"/>
+        <g>
+          <filter id="filter1" style="color-interpolation-filters:sRGB;">
+            <feFlood id="feFlood4649" result="flood" flood-color="currentColor" flood-opacity="0.498039"/>
+            <feComposite id="feComposite4651" result="composite1" operator="in" in2="SourceGraphic" in="flood"/>
+            <feGaussianBlur id="feGaussianBlur4653" result="blur" stdDeviation="10" in="composite1"/>
+            <feOffset id="feOffset4655" result="offset" dy="0" dx="0"/>
+            <feComposite id="feComposite4657" result="composite2" operator="over" in2="offset" in="SourceGraphic"/>
+          </filter>
+        </g>
+      </defs>
+    </svg>
+    <noscript>
+      A JavaScipt le van tiltva.
+    </noscript>
     <header>
       <!-- EN/HU -->
-      <button>Információ</button>
-      <button>Hírek</button>
-      <button>Térkép</button>
+      <svg id="logo" viewbox="0 0 380 380"><use xlink:href="#airqmap"/></svg>
+      <button class="link" data-href="news">Hírek</button>
+      <button class="link" data-href="info">Információ</button>
+      <button class="link last" data-href="map">Térkép</button>
     </header>
-    <div class="slide" id="news"></div>
-    <div class="slide" id="info"></div>
-    <div class="slide" id="map">
-      <iframe frameborder="0"></iframe> <!-- src="https://airqmap.divaldo.hu/vida.html" -->
-    </div>
+    <main>
+      <div class="container">
+          <div class="slide" id="news">Hírek</div>
+          <div class="slide" id="info">Információ</div>
+          <div class="slide" id="map">Térkép
+            <iframe id="map-frame" frameborder="0" src="https://airqmap.divaldo.hu/vida.html"></iframe> <!-- src="https://airqmap.divaldo.hu/vida.html" -->
+          </div>
+      </div>
+    </main>
     <footer>
       <!-- sponsors & logo -->
       <img src="./assets/img/ud.png" alt="{University of Debrecen}" />
+      <img src="./assets/img/mechwart.png" alt="{University of Debrecen}" />
+      <img src="./assets/img/emet.png" alt="{University of Debrecen}" />
     </footer>
+    <script src="./assets/js/index.js"></script>
   </body>
 </html>

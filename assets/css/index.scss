@@ -1,3 +1,50 @@
+@import 'partials/header';
+@import 'partials/main';
+@import 'partials/footer';
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+button {
+  outline: none;
+}
+
+noscript {
+  display: flex;
+  position: fixed;
+  top:0;left: 0;z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000c4;
+  color: red;
+  justify-content: center;
+  align-items: center;
+}
+
 :root {
-    
+  font-family: BigNoodleTooOblique, Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+  --page-background-color: #c0c0c0;
+  --page-color: #000000;
+  --header-background-color: #2a2a2aff;
+  --header-color: #ffffffff;
+  --footer-background-color: #2a2a2aff;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--page-background-color) url(../img/background.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+header, footer {
+  box-shadow: 0 0 1vmax #00000080;
 }

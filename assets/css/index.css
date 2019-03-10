@@ -1,1 +1,146 @@
-/* No CSS *//*# sourceMappingURL=index.css.map */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100vw;
+  height: 10vh;
+  padding: 0 1vw;
+  background-color: var(--header-background-color);
+  color: var(--header-color);
+}
+
+header svg#logo {
+  height: 10vh;
+}
+
+header button {
+  margin: 0;
+  padding: 0 2vw;
+  border: none;
+  height: 10vh;
+  background: transparent;
+  color: inherit;
+  font-size: 3vh;
+  font-family: inherit;
+}
+
+header svg, header button {
+  float: left;
+  border-bottom: .5vh solid transparent;
+}
+
+header svg:hover, header button:hover {
+  border-bottom-color: var(--header-color);
+}
+
+#filter1 {
+  color: var(--header-color);
+}
+
+/* @media only screen and (max-width: 800px) {
+  header {
+    height: 5vh;
+  }
+}
+ */
+main {
+  width: 100vw;
+  overflow: scroll;
+  scroll-behavior: smooth;
+}
+
+main .container {
+  width: 300vw;
+}
+
+main .container .slide {
+  float: left;
+  padding: 10vh 4vw;
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+main .container .slide iframe#map-frame {
+  width: 92vw;
+  height: calc(90vh - 8vw);
+  position: absolute;
+  top: 55vh;
+  left: 4vw;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 1vmax #00000080;
+          box-shadow: 0 0 1vmax #00000080;
+}
+
+footer {
+  background-color: var(--footer-background-color);
+  padding: 1vh;
+}
+
+footer img {
+  display: block;
+  position: relative;
+  margin: 1vh auto;
+  max-height: 15vh;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+button {
+  outline: none;
+}
+
+noscript {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000c4;
+  color: red;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+:root {
+  font-family: BigNoodleTooOblique, Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+  --page-background-color: #c0c0c0;
+  --page-color: #000000;
+  --header-background-color: #2a2a2aff;
+  --header-color: #ffffffff;
+  --footer-background-color: #2a2a2aff;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--page-background-color) url(../img/background.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+header, footer {
+  -webkit-box-shadow: 0 0 1vmax #00000080;
+          box-shadow: 0 0 1vmax #00000080;
+}
+/*# sourceMappingURL=index.css.map */
