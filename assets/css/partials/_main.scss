@@ -1,25 +1,25 @@
 main {
-    width: 100vw;
-    overflow: scroll;
-    scroll-behavior: smooth;
-    .container {
-        width: 300vw;
-        .slide {
-            float:left;
-            padding: 10vh 4vw;
-            position: relative;
-            width: 100vw;
-            min-height: 100vh;
-            iframe#map-frame {
-                width: 92vw;
-                height: calc(90vh - 8vw);
-                position: absolute;
-                top: 55vh;
-                left: 4vw;
-                transform: translateY(-50%);
-                border-radius: 5px;
-                box-shadow: 0 0 1vmax #00000080;
-            }
-        }
+  width: 100vw;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  .container {
+    width: 300vw;
+    .slide {
+      float:left;
+      padding: 10vh 4vw;
+      position: relative;
+      width: 100vw;
+      min-height: 100vh;
+      iframe#map-frame {
+        width: 92vw;
+        height: calc(90vh - 8vw);
+        position: absolute;
+        top: 55vh;
+        left: 4vw;
+        transform: translateY(-50%);
+        border-radius: 5px;
+        box-shadow: 0 0 1vmax #00000080;
+      }
     }
+  }
 }
