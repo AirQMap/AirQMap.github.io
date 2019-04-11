@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Sensor Profile</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.2/dist/Chart.bundle.min.js"></script>
+    <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+    <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <!-- map location + profile img -->
+      <div id="map"></div>
+      <div class="picture--shadow"></div>
+      <div id="picture--frame"></div>
+    </header>
+
+    <main>
+      <h1 id="sensor--name">Sensor</h1>
+      <table>
+        <thead>
+          <caption>Details</caption>
+        </thead>
+        <tbody id="details">
+          <tr>
+            <td>Contains</td>
+            <td id="sensor--build"></td>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td id="sensor--location"></td>
+          </tr>
+          <tr>
+            <td>Last maintenance</td>
+            <td id="sensor--maintenance"></td>
+          </tr>
+          <tr>
+            <td>Measurment count</td>
+            <td id="sensor--collected"></td>
+          </tr>
+        </tbody>
+      </table>
+      <table>
+        <thead>
+          <caption>
+            Latest Data
+          </caption>
+        </thead>
+        <tbody id="data">
+            <!-- generate elems -->
+        </tbody>
+      </table>
+      <h2>Data Chart</h2>
+      <section class="chart">
+        <canvas id="chart"></canvas>
+      </section>
+    </main>
+
+    <script src="./assets/js/index.js"></script>
+  </body>
+</html>

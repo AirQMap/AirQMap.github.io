@@ -110,7 +110,7 @@ noscript {
   z-index: 100;
   width: 100vw;
   height: 100vh;
-  background-color: #000000c4;
+  background-color: rgba(0, 0, 0, 0.5);
   color: red;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -123,17 +123,18 @@ noscript {
 :root {
   font-family: BigNoodleTooOblique, Arial, Helvetica, sans-serif;
   scroll-behavior: smooth;
-  --page-background-color: #c0c0c0;
-  --page-color: #000000;
-  --header-background-color: #2a2a2aff;
-  --header-color: #ffffffff;
-  --footer-background-color: #2a2a2aff;
+  --page-background-color: rgba(192, 192, 192, 1);
+  --page-color: rgba(0, 0, 0, 1);
+  --header-background-color: rgba(42, 42, 42, 1);
+  --header-color: rgba(255, 255, 255, 1);
+  --footer-background-color: rgba(42, 42, 42, 1);
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  background: var(--page-background-color) url(../img/background.jpg);
+  background-color: var(--page-background-color);
+  background-image: url(../img/background.jpg);
   background-size: cover;
   background-attachment: fixed;
   overflow-x: hidden;
