@@ -35,6 +35,8 @@ loadMap = async () => {
     // Table1 Data
     if (sensorDetails.picture) {
         document.getElementById("picture--frame").style.backgroundImage= `url(${sensorDetails.picture})`;
+    } else {
+        document.getElementById("picture--frame").title = "No picture available..."
     }
     document.getElementById("sensor--name").innerText = sensorDetails.DeviceID;
     document.getElementById("sensor--build").innerText = sensorDetails.Sensors;

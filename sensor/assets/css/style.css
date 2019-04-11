@@ -36,7 +36,9 @@ body {
     background-color: #212121;
     background-image: url(../../../assets/img/background.jpg);
     background-attachment: fixed;
-    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
     overflow-x: hidden;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -88,12 +90,6 @@ header {
     box-shadow: 0 0 2vmin rgba(0, 0, 0, 1);
 }
 
-h1 {
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: 600;
-    font-size: 2rem;
-}
 
 main {
     position: absolute;
@@ -109,6 +105,12 @@ main {
     border-radius: 2vmin 2vmin 0 0;
     background-color: var(--background-color);
     color: white;
+}
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 2rem;
 }
 table {
     width: 100%;
@@ -148,6 +150,7 @@ td:nth-child(2) {
 #chart {
     margin: 0 auto;
 }
+
 footer {
     padding: 5vmin;
     background-color: #1b1b1b;
@@ -162,6 +165,7 @@ footer {
 .sponsors img {
     display: block;
     max-height: 15vh;
+    align-self: center;
 }
 .copy {
     margin-top: 5vmin;
