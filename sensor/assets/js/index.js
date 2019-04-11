@@ -11,9 +11,10 @@ let GET = new Map();
 }
 
 loadMap = async () => {
-    let sensorDetails, sensorData;
+    let sensorDetails= new Object(), sensorData = new Array();
     let proxyUrl = "https://cors-anywhere.herokuapp.com/";
 
+    // Sensor Details
     await fetch(proxyUrl + `https://airqmap.divaldo.hu/sqlGetSensor.php?sensor=${GET.get("sensor")}`)
     .then(res=>res.json())
     .then(res=>sensorDetails = res[0])
@@ -31,7 +32,7 @@ loadMap = async () => {
         mapTypeId: Microsoft.Maps.MapTypeId.aerial
     });
 
-    // Table Data
+    // Table1 Data
     if (sensorDetails.picture) {
         document.getElementById("picture--frame").style.backgroundImage= `url(${sensorDetails.picture})`;
     }
@@ -40,11 +41,17 @@ loadMap = async () => {
     document.getElementById("sensor--location").innerHTML = `Lat: ${sensorDetails.Lat}<br>Long: ${sensorDetails.Lon}`;
     document.getElementById("sensor--maintenance").innerText = sensorDetails.Maintenance;
     delete sensorDetails;
+
+    // Sensor Data
     await fetch(proxyUrl + `https://airqmap.divaldo.hu/sqlGetSensor.php?sensorData=${GET.get("sensor")}`)
     .then(res=>res.json())
     .then(res=>sensorData = res)
     .catch(err=> {throw new Error("The Server Can't be reached.")});
-    document.getElementById("sensor--collected").innerText = sensorData.length;
+
+    // Table2 Data
+    let last = sensorData[sensorData.length-1];
+    document.getElementById("latest--collected").innerText = sensorData.length;
+    document.getElementById("latest--PM").innerHTML = Number(last.part_matter) + " μg/m<sup>3</sup>";
 
     // Chart
     new Chart(document.getElementById("chart").getContext("2d"), {
@@ -72,7 +79,7 @@ loadMap = async () => {
                     tension: 0 // disables bezier curves
                 },
                 point: {
-                    pointStyle: 'triangle',
+                    pointStyle: 'circle',
                     radius: 0
                 }
             }

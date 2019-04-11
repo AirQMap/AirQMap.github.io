@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Sensor Profile</title>
-
+    <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.2/dist/Chart.bundle.min.js"></script>
-
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
@@ -37,10 +36,6 @@
             <td>Last maintenance</td>
             <td id="sensor--maintenance"></td>
           </tr>
-          <tr>
-            <td>Measurment count</td>
-            <td id="sensor--collected"></td>
-          </tr>
         </tbody>
       </table>
       <table>
@@ -50,6 +45,14 @@
           </caption>
         </thead>
         <tbody id="data">
+          <tr>
+            <td>Measurment count</td>
+            <td id="latest--collected"></td>
+          </tr>
+          <tr>
+            <td>Particulate Matter</td>
+            <td id="latest--PM"></td>
+          </tr>
             <!-- generate elems -->
         </tbody>
       </table>
@@ -63,8 +66,7 @@
           <img src="../assets/img/emet.png" alt="{Emberi Erőforrás Támogatáskezelő}" />
           <img src="../assets/img/mechwart.png" alt="{DSZC Mechwart}" />
         </div>
-        <span>
-            &copy; AirQMap&nbsp;Made by Gergely Dremák and Imre Vida</span>
+        <div class="copy">&copy; AirQMap&nbsp;Made by Gergely Dremák and Imre Vida</div>
       </footer>
     </main>
 
