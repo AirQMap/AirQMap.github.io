@@ -7,8 +7,7 @@
     <title>Sensor Profile</title>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.2/dist/Chart.bundle.min.js"></script>
-    <script src="https://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
@@ -58,8 +57,18 @@
       <section class="chart">
         <canvas id="chart"></canvas>
       </section>
+      <footer>
+        <div class="sponsors">
+          <img src="../assets/img/ud.png" alt="{University of Debrecen}" />
+          <img src="../assets/img/emet.png" alt="{Emberi Erőforrás Támogatáskezelő}" />
+          <img src="../assets/img/mechwart.png" alt="{DSZC Mechwart}" />
+        </div>
+        <span>
+            &copy; AirQMap&nbsp;Made by Gergely Dremák and Imre Vida</span>
+      </footer>
     </main>
 
     <script src="./assets/js/index.js"></script>
+    <script src="https://www.bing.com/api/maps/mapcontrol?callback=loadMap" async defer></script>
   </body>
 </html>

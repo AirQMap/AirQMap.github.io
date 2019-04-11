@@ -20,16 +20,20 @@ loadMap = async () => {
     .catch(err=> {throw new Error("The Server Can't be reached.")});
 
     // Map
-    let platform = new H.service.Platform({'app_id': 'jYogEhf6jyizrbn51DlC', 'app_code': 'sN3EPVufG77YnU37HszqdA'});
-    let maptypes = platform.createDefaultLayers();  // Obtain the default map types from the platform object
-    let map = new H.Map(document.getElementById('map'), maptypes.normal.map, { zoom: 16, center: { lng: sensorDetails.Lon, lat: sensorDetails.Lat }});  // Instantiate (and display) a map object:
-    map.setBaseLayer(maptypes.satellite.traffic);
+    new Microsoft.Maps.Map("#map", {
+        credentials: "ArSyAqCFpDbMrF8monFxY9PomZbiBHLhUJ3sFFZeNBLI_b8Rr3J0TUDHSAjkc3AG",
+        center: new Microsoft.Maps.Location(sensorDetails.Lat, sensorDetails.Lon),
+        zoom: 15,
+        enableClickableLogo: false,
+        disablePanning: true,
+        disableZooming: true,
+        supportedMapTypes: [ Microsoft.Maps.MapTypeId.canvasDark, Microsoft.Maps.MapTypeId.grayscale ],
+        mapTypeId: Microsoft.Maps.MapTypeId.aerial
+    });
 
     // Table Data
     if (sensorDetails.picture) {
         document.getElementById("picture--frame").style.backgroundImage= `url(${sensorDetails.picture})`;
-    } else {
-        document.getElementById("picture--frame").innerText = "NO IMAGE";
     }
     document.getElementById("sensor--name").innerText = sensorDetails.DeviceID;
     document.getElementById("sensor--build").innerText = sensorDetails.Sensors;
@@ -41,22 +45,20 @@ loadMap = async () => {
     .then(res=>sensorData = res)
     .catch(err=> {throw new Error("The Server Can't be reached.")});
     document.getElementById("sensor--collected").innerText = sensorData.length;
+
     // Chart
-    let pmArr = sensorData.map(x=>Number(x.part_matter));
-    console.log(pmArr, sensorData);
-    
     new Chart(document.getElementById("chart").getContext("2d"), {
         type: 'line',
         data: {
             labels: sensorData.map(x=>x.timestamp),
             datasets: [{
                 label: 'Grams of particulate matter < 10μm in one m³ of air',
-                data: pmArr,
+                data: sensorData.map(x=>Number(x.part_matter)),
                 backgroundColor: [
-                    'rgba(75, 192, 192, .2)'
+                    'rgba(215, 187, 103, .2)'
                 ],
                 borderColor: [
-                    'rgba(75, 192, 192, 1)'
+                    'rgba(215, 187, 103, 1)'
                 ],
                 borderWidth: 1
             }]
@@ -78,5 +80,3 @@ loadMap = async () => {
     });
     //TODO: NOSCRIPT + LOADER
 };
-
-loadMap();
