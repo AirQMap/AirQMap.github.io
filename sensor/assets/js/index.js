@@ -36,7 +36,7 @@ loadMap = async () => {
     document.getElementById("sensor--location").innerHTML = `Lat: ${sensorDetails.Lat}<br>Long: ${sensorDetails.Lon}`;
     document.getElementById("sensor--maintenance").innerText = sensorDetails.Maintenance;
     delete sensorDetails;
-    await fetch(proxyUrl + `http://airqmap.divaldo.hu/sqlGetSensor.php?sensorData=${GET.get("sensor")}`)
+    await fetch(proxyUrl + `https://airqmap.divaldo.hu/sqlGetSensor.php?sensorData=${GET.get("sensor")}`)
     .then(res=>res.json())
     .then(res=>sensorData = res)
     .catch(err=> {throw new Error("The Server Can't be reached.")});
@@ -76,7 +76,7 @@ loadMap = async () => {
             }
         }
     });
-    //TODO: NOSCRIPT + LOADER + Charts + Measurement count
+    //TODO: NOSCRIPT + LOADER
 };
 
 loadMap();
