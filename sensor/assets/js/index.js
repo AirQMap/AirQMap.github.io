@@ -55,6 +55,10 @@ loadMap = async () => {
     document.getElementById("latest--collected").innerText = sensorData.length;
     document.getElementById("latest--PM").innerHTML = Number(last.part_matter) + " μg/m<sup>3</sup>";
 
+    // DECIMATION
+    let newArr = new Array();
+    for(let i = 0; i < sensorData.length; i+=10) newArr.push(sensorData[i]);
+    sensorData = newArr;
     // Chart
     new Chart(document.getElementById("chart").getContext("2d"), {
         type: 'line',
@@ -76,13 +80,20 @@ loadMap = async () => {
             animation: { duration: 1 }, // general animation time
             hover: { animationDuration: 0 },
             responsiveAnimationDuration: 0, // animation duration after a resize
+            scales: {
+                yAxes: [
+                    {
+                        ticks: {beginAtZero:true,max:100}
+                    }
+                ]
+            },
             elements: {
                 line: {
                     tension: 0 // disables bezier curves
                 },
                 point: {
-                    pointStyle: 'circle',
-                    radius: 0
+                    pointStyle: 'triangle',
+                    radius: 1
                 }
             }
         }
