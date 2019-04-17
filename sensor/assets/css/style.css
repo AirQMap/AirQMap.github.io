@@ -159,7 +159,7 @@ footer {
 .sponsors {
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-content: center;
 }
 .sponsors img {
