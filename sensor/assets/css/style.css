@@ -68,7 +68,7 @@ header {
 
     border: 2vmin var(--background-color) solid;
     border-radius: 50%;
-    box-shadow: 0 0 2vmin inset rgba(0, 0, 0, 1);
+    box-shadow: inset 0px 0px 2vmin rgba(0,0,0,1);
     background-color: rgb(56, 56, 56);
     background-image: url(../../../assets/img/logo_3.svg);
     background-size: 70%;
