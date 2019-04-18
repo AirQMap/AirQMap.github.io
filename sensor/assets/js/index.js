@@ -79,7 +79,7 @@ loadMap = () => {
                 scales: {
                     yAxes: [
                         {
-                            ticks: {beginAtZero:true,max:100}
+                            ticks: {beginAtZero:true,max:150}
                         }
                     ]
                 },
