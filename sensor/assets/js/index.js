@@ -11,10 +11,8 @@ let GET = new Map();
 }
 
 loadMap = () => {
-    let proxyUrl = "https://cors-anywhere.herokuapp.com/";
-
     // Sensor Details
-    fetch(proxyUrl + `https://airqmap.divaldo.hu/sqlGetSensor.php?sensor=${GET.get("sensor")}`)
+    fetch(`https://airqmap.divaldo.hu/sqlGetSensor.php?sensor=${GET.get("sensor")}`)
     .then(res => res.json())
     .then(res => {
         let sensorDetails = res[0];
@@ -43,13 +41,13 @@ loadMap = () => {
     }).catch(err => {throw new Error("The Server Can't be reached.")});
 
     // Sensor Data
-    fetch(proxyUrl + `https://airqmap.divaldo.hu/sqlGetSensor.php?sensorData=${GET.get("sensor")}`)
+    fetch(`https://airqmap.divaldo.hu/odata/?columns=AirQMap.part_matter*Devices.Multiplier as value,timestamp&table=AirQMap INNER JOIN Devices ON AirQMap.device_id=Devices.DeviceID&query=filter=substr(${GET.get("sensor")},DeviceID) LIMIT 5000`)
     .then(res => res.json())
     .then(sensorData => {
         // Table2 Data
         let last = sensorData[sensorData.length-1];
         document.getElementById("latest--collected").innerText = sensorData.length;
-        document.getElementById("latest--PM").innerHTML = Number(last.part_matter) + " μg/m<sup>3</sup>";
+        document.getElementById("latest--PM").innerHTML = parseInt(last.value) + " μg/m<sup>3</sup>";
 
         // DECIMATION
         let newArr = new Array();
@@ -62,7 +60,7 @@ loadMap = () => {
                 labels: sensorData.map(x=>x.timestamp),
                 datasets: [{
                     label: 'Grams of particulate matter < 10μm in one m³ of air',
-                    data: sensorData.map(x=>Number(x.part_matter)),
+                    data: sensorData.map(x=>parseInt(x.value)),
                     backgroundColor: [
                         'rgba(215, 187, 103, .2)'
                     ],
