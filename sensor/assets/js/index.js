@@ -25,16 +25,18 @@ filter=substr(${GET.get("sensor")},DeviceID)
         .then(res => {
             let sensorDetails = res[0];
             // Map
-            new Microsoft.Maps.Map("#map", {
-                credentials: "ArSyAqCFpDbMrF8monFxY9PomZbiBHLhUJ3sFFZeNBLI_b8Rr3J0TUDHSAjkc3AG",
-                center: new Microsoft.Maps.Location(sensorDetails.Lat, sensorDetails.Lon),
-                zoom: 15,
-                enableClickableLogo: false,
-                disablePanning: true,
-                disableZooming: true,
-                supportedMapTypes: [ Microsoft.Maps.MapTypeId.canvasDark, Microsoft.Maps.MapTypeId.grayscale ],
-                mapTypeId: Microsoft.Maps.MapTypeId.aerial
-            });
+            if (sensorDetails.Lat && sensorDetails.Lon) {
+                new Microsoft.Maps.Map("#map", {
+                    credentials: "ArSyAqCFpDbMrF8monFxY9PomZbiBHLhUJ3sFFZeNBLI_b8Rr3J0TUDHSAjkc3AG",
+                    center: new Microsoft.Maps.Location(sensorDetails.Lat, sensorDetails.Lon),
+                    zoom: 15,
+                    enableClickableLogo: false,
+                    disablePanning: true,
+                    disableZooming: true,
+                    supportedMapTypes: [ Microsoft.Maps.MapTypeId.canvasDark, Microsoft.Maps.MapTypeId.grayscale ],
+                    mapTypeId: Microsoft.Maps.MapTypeId.aerial
+                });
+            }
             // Table1 Data
             if (sensorDetails.picture) {
                 document.getElementById("picture--frame").style.backgroundImage= `url(${sensorDetails.picture})`;
@@ -45,7 +47,7 @@ filter=substr(${GET.get("sensor")},DeviceID)
             document.getElementById("sensor--build").innerText = sensorDetails.Sensors;
             document.getElementById("sensor--location").innerHTML = `Lat: ${sensorDetails.Lat}<br>Long: ${sensorDetails.Lon}`;
             document.getElementById("sensor--maintenance").innerText = sensorDetails.Maintenance;    
-        }).catch(err => {throw new Error("The Server Can't be reached.")});
+        }).catch(err => {throw err});
         // Sensor Data
         let date = new Date(Date.now() - 172800000);
         let month = date.getMonth();
@@ -115,7 +117,7 @@ filter=substr(${GET.get("sensor")},DeviceID) AND timestamp gt '${date.getFullYea
         document.getElementById("sensorList").style.setProperty("display", "block");
         let search = document.getElementById("sensorSearch");
         let sensors = document.getElementById("sensors");
-        let loadTable = e => {            
+        let loadTable = e => {
             fetch(`
 https://airqmap.divaldo.hu/odata/
 ?table=Devices
