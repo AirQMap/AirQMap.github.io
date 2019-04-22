@@ -41,7 +41,7 @@ loadMap = () => {
     }).catch(err => {throw new Error("The Server Can't be reached.")});
 
     // Sensor Data
-    fetch(`https://airqmap.divaldo.hu/odata/?columns=AirQMap.part_matter*Devices.Multiplier as value,timestamp&table=AirQMap INNER JOIN Devices ON AirQMap.device_id=Devices.DeviceID&query=filter=substr(${GET.get("sensor")},DeviceID) LIMIT 5000`)
+    fetch(`https://airqmap.divaldo.hu/odata/?columns=AirQMap.part_matter*Devices.Multiplier as value,timestamp&table=AirQMap INNER JOIN Devices ON AirQMap.device_id=Devices.DeviceID&query=filter=substr(${GET.get("sensor")}, DeviceID) LIMIT 5000`)
     .then(res => res.json())
     .then(sensorData => {
         // Table2 Data

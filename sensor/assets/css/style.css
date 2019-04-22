@@ -161,6 +161,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-content: center;
+    flex-wrap: wrap;
 }
 .sponsors img {
     display: block;
