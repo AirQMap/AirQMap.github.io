@@ -11,8 +11,8 @@ let GET = new Map();
 }
 let load;
 if(GET.get("sensor")) {
-    document.getElementById("sensorProfile").style.setProperty("display", "block");
     load = () => {
+        document.getElementById("sensorProfile").style.setProperty("display", "block");
         // Sensor Details
         fetch(`
 https://airqmap.divaldo.hu/odata/
@@ -49,8 +49,7 @@ filter=substr(${GET.get("sensor")},DeviceID)
         // Sensor Data
         let date = new Date(Date.now() - 172800000);
         let month = date.getMonth();
-        if(10 > ++month) month = "0"+month.toString();        
-        
+        if(10 > ++month) month = "0"+month.toString();
         fetch(`
 https://airqmap.divaldo.hu/odata/
 ?table=AirQMap INNER JOIN Devices ON AirQMap.device_id=Devices.DeviceID
@@ -93,7 +92,7 @@ filter=substr(${GET.get("sensor")},DeviceID) AND timestamp gt '${date.getFullYea
                     scales: {
                         yAxes: [
                             {
-                                ticks: {beginAtZero:true,max:150}
+                                ticks: {beginAtZero:true,max:160}
                             }
                         ]
                     },
@@ -112,13 +111,11 @@ filter=substr(${GET.get("sensor")},DeviceID) AND timestamp gt '${date.getFullYea
         //TODO: NOSCRIPT + LOADER
     };
 } else {
-    document.getElementById("sensorList").style.setProperty("display", "block");
     load = () => {
+        document.getElementById("sensorList").style.setProperty("display", "block");
         let search = document.getElementById("sensorSearch");
         let sensors = document.getElementById("sensors");
-        let loadTable = e => {
-            console.log("something");
-            
+        let loadTable = e => {            
             fetch(`
 https://airqmap.divaldo.hu/odata/
 ?table=Devices
@@ -158,5 +155,4 @@ filter=substr(${search.value},DeviceID)
         search.addEventListener("change", loadTable);
     }
 }
-
-load();
+setTimeout(()=>load(), 1000);
