@@ -2,6 +2,10 @@
     --background-color: #2f2f2f;
 }
 
+a {
+    color: inherit;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -139,7 +143,7 @@ td {
 td:nth-child(1) {
     border-left-width: 0px;
 }
-td:nth-child(2) {
+td:nth-last-child(1) {
     border-right-width: 0px;
 }
 
@@ -150,6 +154,27 @@ td:nth-child(2) {
 #chart {
     margin: 0 auto;
 }
+
+#sensorSearch {
+    display: block;
+    margin: 5vmin auto;
+    width: 40%;
+    height: 4vmin;
+    outline: none;
+    border: .1vmin solid white;
+    border-radius: 2vmin;
+    padding: 0 2vmin;
+    background-color: #383838;
+    color: inherit;
+    transition: all .2s ease-out;
+}
+#sensorSearch:hover {
+    box-shadow: 0 0 1vmin rgba(255, 255, 255, .8);
+}
+#sensorList td{
+    width: 25%;
+}
+
 
 footer {
     padding: 5vmin;

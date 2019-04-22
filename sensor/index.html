@@ -10,9 +10,7 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
-    <noscript>
-      A JavaScipt le van tiltva.
-    </noscript>
+    <noscript>A JavaScipt le van tiltva.</noscript>
     <header>
       <div id="map"></div>
       <div class="picture--shadow"></div>
@@ -20,48 +18,58 @@
     </header>
 
     <main>
-      <h1 id="sensor--name">Sensor</h1>
-      <table>
-        <thead>
+      <div id="sensorProfile" style="display: none;">
+        <h1 id="sensor--name">Sensor</h1>
+        <table>
           <caption>Details</caption>
-        </thead>
-        <tbody id="details">
-          <tr>
-            <td>Contains</td>
-            <td id="sensor--build"></td>
-          </tr>
-          <tr>
-            <td>Location</td>
-            <td id="sensor--location"></td>
-          </tr>
-          <tr>
-            <td>Last maintenance</td>
-            <td id="sensor--maintenance"></td>
-          </tr>
-        </tbody>
-      </table>
-      <table>
-        <thead>
-          <caption>
-            Latest Data
-          </caption>
-        </thead>
-        <tbody id="data">
-          <tr>
-            <td>Measurment count</td>
-            <td id="latest--collected"></td>
-          </tr>
-          <tr>
-            <td>Particulate Matter</td>
-            <td id="latest--PM"></td>
-          </tr>
-            <!-- generate elems -->
-        </tbody>
-      </table>
-      <h2>Data Chart</h2>
-      <section class="chart">
-        <canvas id="chart"></canvas>
-      </section>
+          <tbody id="details">
+            <tr>
+              <td>Contains</td>
+              <td id="sensor--build"></td>
+            </tr>
+            <tr>
+              <td>Location</td>
+              <td id="sensor--location"></td>
+            </tr>
+            <tr>
+              <td>Last maintenance</td>
+              <td id="sensor--maintenance"></td>
+            </tr>
+          </tbody>
+        </table>
+        <table>
+          <caption>Latest Data</caption>
+          <tbody id="data">
+            <tr>
+              <td>Measurment count</td>
+              <td id="latest--collected"></td>
+            </tr>
+            <tr>
+              <td>Particulate Matter</td>
+              <td id="latest--PM"></td>
+            </tr>
+              <!-- generate elems -->
+          </tbody>
+        </table>
+        <h2>Data Chart</h2>
+        <section class="chart">
+          <canvas id="chart"></canvas>
+        </section>
+      </div>
+      <div id="sensorList" style="display: none;">
+        <input type="search" name="sensorSearch" id="sensorSearch" placeholder="Seach sensors...">
+        <table>
+          <thead>
+            <tr>
+              <th>DeviceID</th>
+              <th>Latitude</th>
+              <th>Longtitude</th>
+              <th>Sensors</th>
+            </tr>
+          </thead>
+          <tbody id="sensors"><!-- js does the job --></tbody>
+        </table>
+      </div>
       <footer>
         <div class="sponsors">
           <img src="../assets/img/mechwart.png" alt="{DSZC Mechwart}" />
@@ -73,7 +81,7 @@
       </footer>
     </main>
 
-    <script src="./assets/js/index.js"></script>
-    <script src="https://www.bing.com/api/maps/mapcontrol?callback=loadMap" async defer></script>
+    <script src="https://www.bing.com/api/maps/mapcontrol"></script>
+    <script src="./assets/js/index.js" defer></script>
   </body>
 </html>
