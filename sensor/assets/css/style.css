@@ -166,6 +166,7 @@ footer {
 .sponsors img {
     display: block;
     max-height: 15vh;
+    max-width: 100%;
     align-self: center;
 }
 .copy {
