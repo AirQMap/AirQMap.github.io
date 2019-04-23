@@ -17,7 +17,7 @@ if(GET.get("sensor")) {
         fetch(`
 https://airqmap.divaldo.hu/odata/
 ?table=Devices
-&columns=DeviceID;Sensors;Lat;Lon;Maintenance
+&columns=DeviceID;Sensors;Lat;Lon;Maintenance;Image
 &query=
 filter=substr(${GET.get("sensor")},DeviceID)
 `)
@@ -38,8 +38,8 @@ filter=substr(${GET.get("sensor")},DeviceID)
                 });
             }
             // Table1 Data
-            if (sensorDetails.picture) {
-                document.getElementById("picture--frame").style.backgroundImage= `url(${sensorDetails.picture})`;
+            if (sensorDetails.Image) {
+                document.getElementById("picture--frame").style.backgroundImage= `url(${sensorDetails.Image})`;
             } else {
                 document.getElementById("picture--frame").title = "No picture available..."
             }
