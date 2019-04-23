@@ -45,7 +45,7 @@ LIMIT 1
 https://airqmap.divaldo.hu/odata/
 ?table=UserData INNER JOIN Users ON Users.id=UserData.user_id
 &columns=timestamp;part_matter
-&query=filter=substr(${GET.get("user")},uname)
+&query=filter=substr(${GET.get("user")},uname) ORDER BY timestamp
 `)
     .then(res => res.json())
     .then(userData => {
