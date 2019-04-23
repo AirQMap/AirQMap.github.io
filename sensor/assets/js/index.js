@@ -157,4 +157,4 @@ filter=substr(${search.value},DeviceID)
         search.addEventListener("change", loadTable);
     }
 }
-setTimeout(()=>load(), 1000);
+setTimeout(()=>load(), 1000); // TODO: FIX THIS LINE SOMEHOW

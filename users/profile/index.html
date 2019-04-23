@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>User Profile</title>
+    <link rel="shortcut icon" href="../../assets/img/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.2/dist/Chart.bundle.min.js"></script>
+    <script src="../assets/js/index.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+  <body>
+    <noscript>A JavaScipt le van tiltva.</noscript>
+    <header>
+      <iframe src="https://airqmap.divaldo.hu/aqm.html" id="map"></iframe>
+      <div class="picture--shadow"></div>
+      <div id="picture--frame"></div>
+    </header>
+
+    <main>
+      <div id="userProfile">
+        <h1 id="user--name">Profile</h1>
+        <table>
+          <caption  id="user--name">User</caption>
+          <tbody>
+              <tr>
+                  <td>Latest Data</td>
+                  <td id="user--latest" style="font-weight: bold;"></td>
+              </tr>
+              <tr>
+                  <td>Average Pollution</td>
+                  <td id="user--avg"></td>
+              </tr>
+              <tr>
+                  <td>Highest Pollution</td>
+                  <td id="user--high"></td>
+              </tr>
+              <tr>
+                  <td>Lowest Pollution</td>
+                  <td id="user--low"></td>
+              </tr>
+              <tr>
+                  <td>Accumulated Pollution</td>
+                  <td id="user--accml"></td>
+              </tr>
+          </tbody>
+        </table>
+        <h2>Data Chart</h2>
+        <section class="chart">
+          <canvas id="chart"></canvas>
+        </section>
+      </div>
+      <footer>
+        <div class="sponsors">
+          <img src="../../assets/img/mechwart.png" alt="{DSZC Mechwart}" />
+          <img src="../../assets/img/emet.png" alt="{Emberi Erőforrás Támogatáskezelő}" />
+          <img src="../../assets/img/haddphi.png" alt="{HADDPHI}" />
+          <img src="../../assets/img/ud.png" alt="{University of Debrecen}" />
+        </div>
+        <div class="copy">&copy; AirQMap&nbsp;Made by Gergely Dremák and Imre Vida</div>
+      </footer>
+    </main>
+
+    <script src="https://www.bing.com/api/maps/mapcontrol" async defer></script>
+  </body>
+</html>
