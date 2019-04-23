@@ -63,7 +63,7 @@ https://airqmap.divaldo.hu/odata/
 
         // These values are all averages
         const breathingRate = 15; // /min
-        const tidalVolume = .5; // L of air / breath
+        const tidalVolume = .0005; // m^3 of air / breath
         const harmRate = .85; // 85% of the breathed particles can cause harm
 
         let latestDOM = document.getElementById("user--latest");
