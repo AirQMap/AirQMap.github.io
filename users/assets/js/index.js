@@ -7,7 +7,10 @@ let GET = new Map();
             let a = elem.split('=');
             GET.set(a[0], a[1]);
         }
-    } catch (e) { console.error(e); }
+    } catch (e) {
+        console.error(e);
+        window.location = window.location + "https://airqmap.github.io/users/login";
+    }
 }
 
 let getColor = val => {
@@ -15,6 +18,7 @@ let getColor = val => {
     else if (val > 100) return "red";
     else return "orange";
 }
+
 let load = () => {
     // Sensor Details
     fetch(`
@@ -109,12 +113,10 @@ https://airqmap.divaldo.hu/odata/
                 }
             }
         });
-        })
+    })
     .catch(err => { console.error(err); });
 };
 
 if (GET.get("user")) {
     setTimeout(() => load(), 1000); // TODO: FIX THIS LINE SOMEHOW
-} else {
-    window.location = window.location + "/../login";
 }
