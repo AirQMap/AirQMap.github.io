@@ -67,9 +67,9 @@ filter=substr(${GET.get("sensor")},DeviceID) AND timestamp gt '${date.getFullYea
             document.getElementById("latest--PM").innerHTML = parseInt(last.value) + " μg/m<sup>3</sup>";
     
             // DECIMATION
-            let newArr = new Array();
+            /* let newArr = new Array();
             for(let i = 0; i < sensorData.length; i+=10) newArr.push(sensorData[i]);
-            sensorData = newArr;
+            sensorData = newArr; */
             // Chart
             new Chart(document.getElementById("chart").getContext("2d"), {
                 type: 'line',
