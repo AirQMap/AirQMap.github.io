@@ -9,7 +9,7 @@ let GET = new Map();
         }
     } catch (e) {
         console.error(e);
-        window.location = window.location + "https://airqmap.github.io/users/login";
+        window.location = "https://airqmap.github.io/users/login/";
     }
 }
 
@@ -32,7 +32,9 @@ LIMIT 1
     .then(res => res.json())
     .then(res => {
         let user = res[0];
-        if (user.picture) {
+        if (user.image) {
+            console.log(user.image);
+            
             document.getElementById("picture--frame").style.backgroundImage = `url(${user.image})`;
         } else {
             document.getElementById("picture--frame").title = "No picture available...";
