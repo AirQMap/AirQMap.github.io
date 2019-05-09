@@ -115,9 +115,22 @@ footer img {
       align-self: center;
 }
 
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar:horizontal {
   display: none;
-} */
+}
+
+::-webkit-scrollbar {
+  width: 1vw;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #2a2a2a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -125,6 +138,10 @@ footer img {
 
 button {
   outline: none;
+}
+
+a {
+  color: inherit;
 }
 
 noscript {
