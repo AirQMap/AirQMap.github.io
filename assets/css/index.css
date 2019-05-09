@@ -78,13 +78,25 @@ main .container .slide iframe#map-frame {
 footer {
   background-color: var(--footer-background-color);
   padding: 1vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 footer img {
   display: block;
-  position: relative;
-  margin: 1vh auto;
   max-height: 15vh;
+  max-width: 100%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 ::-webkit-scrollbar {

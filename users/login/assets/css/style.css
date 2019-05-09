@@ -1,0 +1,130 @@
+:root {
+    --background-color: #2f2f2f;
+}
+
+a {
+    color: inherit;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* ::-webkit-scrollbar {
+    display: none;
+} */
+  
+noscript {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: red;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #212121;
+    background-image: url(../../../../assets/img/background.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+header {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--background-color);
+    position: relative;
+    user-select: none;
+}
+ 
+main {
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+
+    width: 100vw;
+    max-width: 500px;
+    box-shadow: 0 0 2vmin rgba(0, 0, 0, 1);
+    border-radius: 2vmin;
+    background-color: var(--background-color);
+}
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+hr {
+    border: .1vmin solid white;
+}
+
+input {
+    display: block;
+    margin: 1vmax auto;
+    outline: none;
+    height: 3.5rem;
+    border-radius: 1.75rem;
+    border: .1vmin solid white;
+    padding: 1rem 1.75rem;
+    background-color: transparent;
+    color: inherit;
+    font-size: 1.5rem;
+    transition: all .2s ease-out;
+}
+input[type="text"],
+input[type="password"] {
+    width: 90%;
+}
+input:hover {
+    border-color: #ceae61;
+}
+input:focus {
+    border-color: #85744d;
+}
+
+footer {
+    width: 100vw;
+    top: 100vh;
+    padding: 5vmin;
+    background-color: #1b1b1b;
+    text-align: center;
+    position: absolute;
+    box-shadow: 0 0 2vmin rgba(0, 0, 0, 0.5);
+}
+.sponsors {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    flex-wrap: wrap;
+}
+.sponsors img {
+    display: block;
+    max-height: 15vh;
+    max-width: 100%;
+    align-self: center;
+}
+.copy {
+    margin-top: 5vmin;
+}
