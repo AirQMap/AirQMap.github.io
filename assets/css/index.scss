@@ -44,7 +44,7 @@ noscript {
 }
 
 :root {
-  font-family: BigNoodleTooOblique, Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   scroll-behavior: smooth;
   --page-background-color: rgba(192, 192, 192, 1);
   --page-color: rgba(0, 0, 0, 1);
@@ -61,6 +61,8 @@ body {
   background-size: cover;
   background-attachment: fixed;
   overflow-x: hidden;
+  color: white;
+  font-variant: small-caps;
 }
 
 header, footer {

@@ -12,6 +12,8 @@ header {
 
 header svg#logo {
   height: 10vh;
+  pointer-events: none;
+  margin-right: 1vw;
 }
 
 header button {
@@ -23,6 +25,8 @@ header button {
   color: inherit;
   font-size: 3vh;
   font-family: inherit;
+  font-variant: inherit;
+  text-transform: uppercase;
 }
 
 header svg, header button {
@@ -32,18 +36,13 @@ header svg, header button {
 
 header svg:hover, header button:hover {
   border-bottom-color: var(--header-color);
+  background-color: #3b3b3b;
 }
 
 #filter1 {
   color: var(--header-color);
 }
 
-/* @media only screen and (max-width: 800px) {
-  header {
-    height: 5vh;
-  }
-}
- */
 main {
   width: 100vw;
   overflow: scroll;
@@ -75,6 +74,10 @@ main .container .slide iframe, main .container .slide embed {
 footer {
   background-color: var(--footer-background-color);
   padding: 1vh;
+  text-align: center;
+}
+
+footer .sponsors {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -85,9 +88,10 @@ footer {
       align-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  padding: 1vh 0;
 }
 
-footer img {
+footer .sponsors img {
   display: block;
   max-height: 15vh;
   max-width: 100%;
@@ -147,7 +151,7 @@ noscript {
 }
 
 :root {
-  font-family: BigNoodleTooOblique, Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   scroll-behavior: smooth;
   --page-background-color: rgba(192, 192, 192, 1);
   --page-color: rgba(0, 0, 0, 1);
@@ -164,6 +168,8 @@ body {
   background-size: cover;
   background-attachment: fixed;
   overflow-x: hidden;
+  color: white;
+  font-variant: small-caps;
 }
 
 header, footer {

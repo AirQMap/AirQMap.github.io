@@ -10,6 +10,8 @@ header {
   color: var(--header-color);
   svg#logo {
     height: 10vh;
+    pointer-events: none;
+    margin-right: 1vw;
   }
   button {
     margin: 0;
@@ -20,24 +22,19 @@ header {
     color: inherit;
     font-size: 3vh;
     font-family: inherit;
+    font-variant: inherit;
+    text-transform: uppercase;
   }
   svg, button {
     float: left;
     border-bottom: .5vh solid transparent;
     &:hover {
       border-bottom-color: var(--header-color);
+      background-color: #3b3b3b;
     }
   }
 }
 
-
 #filter1 {
   color: var(--header-color);
 }
-
-/* @media only screen and (max-width: 800px) {
-  header {
-    height: 5vh;
-  }
-}
- */
