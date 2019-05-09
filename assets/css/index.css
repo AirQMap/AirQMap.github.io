@@ -62,30 +62,11 @@ main .container .slide {
   min-height: 100vh;
 }
 
-main .container .slide div {
-  width: 92vw;
-  height: calc(90vh - 8vw);
-  margin: 8vh auto 0;
-  background-color: #2a2a2a;
-  padding: 5vh;
-  color: white;
-  border-radius: 1vh;
-}
-
-main .container .slide div embed {
-  width: 100%;
-  height: 100%;
-  border-radius: 1vh;
-}
-
 main .container .slide iframe, main .container .slide embed {
   width: 92vw;
   height: calc(90vh - 8vw);
-  position: absolute;
-  top: 55vh;
-  left: 4vw;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  position: relative;
+  margin: 8vh auto 0;
   border-radius: 1vh;
   -webkit-box-shadow: 0 0 1vmax #00000080;
           box-shadow: 0 0 1vmax #00000080;

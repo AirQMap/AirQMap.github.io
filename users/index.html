@@ -6,9 +6,12 @@
 </head>
 
 <body>
-    <!--IF LOGGED IN PROFILE ELSE LOGIN-->
     <script>
-
+        if(localStorage.getItem("sessionID")) {
+            document.location = "./profile/";
+        } else {
+            document.location = "./login/";
+        }
     </script>
 </body>
 
