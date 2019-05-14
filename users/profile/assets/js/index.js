@@ -1,17 +1,6 @@
-let GET = new Map();
-{
-    let kv;
-    try {
-        kv = window.location.href.split('?')[1].split('&');
-        for (let elem of kv) {
-            let a = elem.split('=');
-            GET.set(a[0], a[1]);
-        }
-    } catch (e) {
-        console.error(e);
-        /* window.location = "https://airqmap.github.io/users/login/"; */
-    }
-}
+let sessionID = localStorage.getItem("sessionID");
+if(!sessionID) window.location = "../login/";
+else setTimeout(() => load(), 1000); // TODO: FIX THIS LINE SOMEHOW
 
 let getColor = val => {
     if (val < 50) return "#00bd00";
@@ -20,30 +9,26 @@ let getColor = val => {
 }
 
 let load = () => {
-    // Sensor Details
-    fetch(`
-https://airqmap.divaldo.hu/odata/
-?table=Users
-&columns=*
-&query=
-filter=substr(${GET.get("user")},uname)
-LIMIT 1
-`)
-        .then(res => res.json())
-        .then(res => {
-            let user = res[0];
-            if (user.image) {
-                console.log(user.image);
+    let session = `sessionID=${sessionID}`;
+    fetch("https://airqmap.divaldo.hu/userdata/", {
+        method: 'POST',
+        body: session,
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        }
+    })
+    .then(res => res.json())
+    .then(user => {
+        if (user.image) {
+            document.getElementById("picture--frame").style.backgroundImage = `url(${user.image})`;
+        } else {
+            document.getElementById("picture--frame").title = "No picture available...";
+        }
+        document.getElementById("user--name").innerText = `${user.fname} ${user.lname}`;
+    }).catch(err => { console.error(err); });
+}
 
-                document.getElementById("picture--frame").style.backgroundImage = `url(${user.image})`;
-            } else {
-                document.getElementById("picture--frame").title = "No picture available...";
-            }
-            document.getElementById("user--name").innerText = user.fname + " " + user.lname;
-        }).catch(err => { console.error(err); });
-
-    // Sensor Data
-    fetch(`
+    /* fetch(`
 https://airqmap.divaldo.hu/odata/
 ?table=UserData INNER JOIN Users ON Users.id=UserData.user_id
 &columns=timestamp;part_matter
@@ -117,8 +102,5 @@ https://airqmap.divaldo.hu/odata/
             });
         })
         .catch(err => { console.error(err); });
-};
+}; */
 
-if (GET.get("user")) {
-    setTimeout(() => load(), 1000); // TODO: FIX THIS LINE SOMEHOW
-}

@@ -38,7 +38,6 @@ body {
     margin: 0;
     padding: 0;
     background-color: #212121;
-    background-image: url(../../../assets/img/background.jpg);
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
@@ -54,13 +53,14 @@ header {
     position: relative;
     user-select: none;
 }
-#map {
+.user--background {
     position: relative;
     z-index: 0;
     width: 100%;
     height: 100vh;
     box-shadow: 0 0 2vmin rgba(0, 0, 0, 1);
-    border: none;
+    background-image: url(../../../../assets/img/background.jpg);
+    background-size: cover;
 }
 #picture--frame {
     position: absolute;
@@ -75,7 +75,7 @@ header {
     border-radius: 50%;
     box-shadow: inset 0px 0px 2vmin rgba(0,0,0,1);
     background-color: rgb(56, 56, 56);
-    background-image: url(../../../assets/img/logo_3.svg);
+    background-image: url(../../../../assets/img/logo_4.svg);
     background-size: 70%;
     background-position: center 35%;
     background-repeat: no-repeat;
