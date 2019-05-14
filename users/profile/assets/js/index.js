@@ -1,3 +1,4 @@
+if(window.location.search === "?user=vidaimi12") window.location = "./old/"
 let sessionID = localStorage.getItem("sessionID");
 if(!sessionID) window.location = "../login/";
 else setTimeout(() => load(), 1000); // TODO: FIX THIS LINE SOMEHOW
