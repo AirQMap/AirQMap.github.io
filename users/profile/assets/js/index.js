@@ -1,4 +1,4 @@
-if(window.location.search.substr(0, 15) === "?user=vidaimi12") window.location = "./old/"
+if(window.location.search.substring(0, 15) == "?user=vidaimi12") window.location = "./old/";
 let sessionID = localStorage.getItem("sessionID");
 if(!sessionID) window.location = "../login/";
 else setTimeout(() => load(), 1000); // TODO: FIX THIS LINE SOMEHOW
