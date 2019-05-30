@@ -19,7 +19,7 @@ https://airqmap.divaldo.hu/odata/
 ?table=Devices
 &columns=DeviceID;Sensors;Lat;Lon;Maintenance
 &query=
-filter=substr(${search.value},DeviceID)
+filter=true
 `)
             .then(res=>res.json())
             .then(res=> {
