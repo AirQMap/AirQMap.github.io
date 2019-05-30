@@ -5,48 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Sensor Profile</title>
-    <link rel="shortcut icon" href="../../assets/img/favicon.ico" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="../../assets/img/favicon.ico"
+      type="image/x-icon"
+    />
     <style>
-        body {
-            margin: 0;
-        }
-        #map {
-            width: 100vw;
-            height: 100vh;;
-        }
+      body {
+        margin: 0;
+      }
+      #map {
+        width: 100vw;
+        height: 100vh;
+      }
     </style>
   </head>
   <body>
     <noscript>A JavaScipt le van tiltva.</noscript>
     <div id="map"></div>
     <script>
-        function load() {
-            fetch(`
+      let now;
+      function getColor(val) {
+        val = new Date(val).getTime();
+        var diff = now - val;
+        if(diff < 120000) return "green";
+        else if(diff < 240000) return "orange";
+        else return "red";
+      }
+      // lastmin
+      function load() {
+        fetch(`
 https://airqmap.divaldo.hu/odata/
-?table=Devices
-&columns=DeviceID;Sensors;Lat;Lon;Maintenance
+?table=Devices JOIN AirQMap ON Devices.DeviceID=AirQMap.device_id
+&columns=DeviceID;Lat;Lon;MAX(timestamp) as timestamp
 &query=
-filter=true
+filter=true GROUP BY DeviceID
 `)
-            .then(res=>res.json())
-            .then(res=> {
-                let map = new Microsoft.Maps.Map("#map", {
-                    //center: new Microsoft.Maps.Location(sensorDetails.Lat, sensorDetails.Lon),
-                    zoom: 3,
-                    enableClickableLogo: false,
-                    mapTypeId: Microsoft.Maps.MapTypeId.aerial
-                });
-                res.forEach(elem => {
-                    if(elem.Lat && elem.Lon) {
-                        let loc = new Microsoft.Maps.Location(elem.Lat, elem.Lon);
-                        map.entities.push(new Microsoft.Maps.Pushpin(loc, {
-                            title: elem.DeviceID
-                        }));
-                    }
-                });
+          .then(res => res.json())
+          .then(res => {
+            let map = new Microsoft.Maps.Map("#map", {
+              //center: new Microsoft.Maps.Location(sensorDetails.Lat, sensorDetails.Lon),
+              zoom: 3,
+              enableClickableLogo: false,
+              mapTypeId: Microsoft.Maps.MapTypeId.aerial
             });
-        }
+            now = Date.now();
+            res.forEach(elem => {
+              if (elem.Lat && elem.Lon) {
+                let loc = new Microsoft.Maps.Location(elem.Lat, elem.Lon);
+                let color = getColor(elem.timestamp);
+                map.entities.push(
+                  new Microsoft.Maps.Pushpin(loc, {
+                    title: elem.DeviceID,
+                    color: color
+                  })
+                );
+              }
+            });
+          });
+      }
     </script>
-    <script src="https://www.bing.com/api/maps/mapcontrol?callback=load&key=ArSyAqCFpDbMrF8monFxY9PomZbiBHLhUJ3sFFZeNBLI_b8Rr3J0TUDHSAjkc3AG" async defer></script>
+    <script
+      src="https://www.bing.com/api/maps/mapcontrol?callback=load&key=ArSyAqCFpDbMrF8monFxY9PomZbiBHLhUJ3sFFZeNBLI_b8Rr3J0TUDHSAjkc3AG"
+      async
+      defer
+    ></script>
   </body>
+  <!-- 
+    https://airqmap.divaldo.hu/odata/?table=AirQMap&columns=MAX(timestamp) as timestamp&query=filter=true 
+    
+  -->
 </html>
