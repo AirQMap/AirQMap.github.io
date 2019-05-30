@@ -6,13 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Sensor Profile</title>
     <link rel="shortcut icon" href="../../assets/img/favicon.ico" type="image/x-icon">
-    <script src="./assets/js/index.js"></script>
+    <style>
+        body {
+            margin: 0;
+        }
+        #map {
+            width: 100vw;
+            height: 100vh;;
+        }
+    </style>
   </head>
   <body>
     <noscript>A JavaScipt le van tiltva.</noscript>
     <div id="map"></div>
     <script>
-        
         let load = e => {
             fetch(`
 https://airqmap.divaldo.hu/odata/
