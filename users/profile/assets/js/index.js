@@ -13,7 +13,7 @@ if(window.location.search.substring(0, 15) == "?user=vidaimi12") {
 
     let load = () => {
         let session = `sessionID=${sessionID}`;
-        fetch("https://airqmap.divaldo.hu/userdata/", {
+        fetch("https://airqmap.divaldo.hu/user/user_data/", {
             method: 'POST',
             body: session,
             headers: {
